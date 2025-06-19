@@ -1,4 +1,4 @@
-# bloor-survey-data
+# Data from annual surveys of businesses on Bloor Street, Toronto
 The file `bloor.sql` is a `mysqldump` of the database behind
 https://mjo.osborne.economics.utoronto.ca/index.php/bloor/
 
