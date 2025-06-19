@@ -2,12 +2,13 @@
 The file `bloor.sql` is a `mysqldump` of the database behind
 https://mjo.osborne.economics.utoronto.ca/index.php/bloor/
 
-This database consists of the results of my surveys of the businesses on Bloor Street, Toronto, between Spadina and Lansdowne, since 1995 augmented by similar data from city directories prior to 1995.  The page
+This database consists of the results of my surveys of the businesses on Bloor Street, Toronto, between Spadina and Lansdowne, since 1995,augmented by similar data from city directories prior to 1995.  The page
 https://mjo.osborne.economics.utoronto.ca/index.php/bloor/bloorData
 describes the data in detail.
 
 The database consists of the following tables:
-```+-------------------------+
+```
++-------------------------+
 | bloor_businesses        |
 | bloor_categories        |
 | bloor_directories       |
@@ -23,7 +24,8 @@ The database consists of the following tables:
 ```
 
 The table `bloor_observations` has the following structure:
-```+----------------+--------------+------+-----+---------+----------------+
+```
++----------------+--------------+------+-----+---------+----------------+
 | Field          | Type         | Null | Key | Default | Extra          |
 +----------------+--------------+------+-----+---------+----------------+
 | observation_id | mediumint(5) | NO   | PRI | NULL    | auto_increment |
@@ -42,7 +44,8 @@ The table `bloor_observations` has the following structure:
 Observations that come from my surveys have non-null `survey_id`s and observations that come from the directories have non-null `directory_id`s.
 
 The table `bloor_surveys` gives the dates I conducted the surveys and has a flag (`current`) indicating whether the survey is the latest one I have conducted.
-```+------------+--------------+------+-----+---------+----------------+
+```
++------------+--------------+------+-----+---------+----------------+
 | Field      | Type         | Null | Key | Default | Extra          |
 +------------+--------------+------+-----+---------+----------------+
 | survey_id  | mediumint(5) | NO   | PRI | NULL    | auto_increment |
@@ -55,7 +58,8 @@ The table `bloor_surveys` gives the dates I conducted the surveys and has a flag
 ```
 
 The table `bloor_directories` gives the details of the directories (scans of which are available from the Toronto Public Library, on the page https://www.torontopubliclibrary.ca/history-genealogy/lh-digital-city-directories.jsp).
-```+---------------------------+--------------+------+-----+---------+----------------+
+```
++---------------------------+--------------+------+-----+---------+----------------+
 | Field                     | Type         | Null | Key | Default | Extra          |
 +---------------------------+--------------+------+-----+---------+----------------+
 | directory_id              | mediumint(5) | NO   | PRI | NULL    | auto_increment |
@@ -69,7 +73,8 @@ The table `bloor_directories` gives the details of the directories (scans of whi
 Some of the scans exclude the edges of the pages.  In these cases, I went to the Toronto Reference Library and took photos of the missing information.
 
 The table `bloor_locations` has the following structure.
-```+----------------+--------------+------+-----+---------+----------------+
+```
++----------------+--------------+------+-----+---------+----------------+
 | Field          | Type         | Null | Key | Default | Extra          |
 +----------------+--------------+------+-----+---------+----------------+
 | location_id    | mediumint(5) | NO   | PRI | NULL    | auto_increment |
@@ -95,7 +100,8 @@ The fields `latitude` and `longitude` are mostly unpopulated.
 The field `image_filename` is used to identify the photo in which the location appears.  It is used only on the administrative site, as an aid when entering data from the directories.
 
 The table `bloor_businesses` assigns a name to each business (usually the name of the business in the first year I observed it).
-```+-------------+--------------+------+-----+---------+----------------+
+```
++-------------+--------------+------+-----+---------+----------------+
 | Field       | Type         | Null | Key | Default | Extra          |
 +-------------+--------------+------+-----+---------+----------------+
 | business_id | mediumint(5) | NO   | PRI | NULL    | auto_increment |
@@ -105,7 +111,8 @@ The table `bloor_businesses` assigns a name to each business (usually the name o
 ```
 
 I put each observation into a category, like 'Prepared food' or 'Clothing'.  The possible categories are given in the table `bloor_categories`.  The `description` field is the name (like 'Prepared food').  The `details` field is populated in a few cases.  The fields `seq`, `color`, and `dark_color` are used when displaying data on the website.
-```+-------------+--------------+------+-----+---------+----------------+
+```
++-------------+--------------+------+-----+---------+----------------+
 | Field       | Type         | Null | Key | Default | Extra          |
 +-------------+--------------+------+-----+---------+----------------+
 | category_id | bigint(20)   | NO   | PRI | NULL    | auto_increment |
@@ -118,7 +125,8 @@ I put each observation into a category, like 'Prepared food' or 'Clothing'.  The
 ```
 
 For businesses that appear to cater significantly to people from a specific country or culture, I assign an 'ethnicity'.  I make an assessment based primarily on the language of the signage for the store.  The table `bloor_ethnicities` gives these ethnicities: Korean, Indian, Hispanic, and Ethiopian.
-```+--------------+-------------+------+-----+---------+----------------+
+```
++--------------+-------------+------+-----+---------+----------------+
 | Field        | Type        | Null | Key | Default | Extra          |
 +--------------+-------------+------+-----+---------+----------------+
 | ethnicity_id | smallint(6) | NO   | PRI | NULL    | auto_increment |
