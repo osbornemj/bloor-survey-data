@@ -104,7 +104,7 @@ The table `bloor_businesses` assigns a name to each business (usually the name o
 +-------------+--------------+------+-----+---------+----------------+
 ```
 
-The table `bloor_categories`
+I put each observation into a category, like 'Prepared food' or 'Clothing'.  The possible categories are given in the table `bloor_categories`.  The `description` field is the name (like 'Prepared food').  The `details` field is populated in a few cases.  The fields `seq`, `color`, and `dark_color` are used when displaying data on the website.
 ```+-------------+--------------+------+-----+---------+----------------+
 | Field       | Type         | Null | Key | Default | Extra          |
 +-------------+--------------+------+-----+---------+----------------+
@@ -115,4 +115,62 @@ The table `bloor_categories`
 | color       | varchar(7)   | YES  |     | NULL    |                |
 | dark_color  | varchar(7)   | YES  |     | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
+```
+
+For businesses that appear to cater significantly to people from a specific country or culture, I assign an 'ethnicity'.  I make an assessment based primarily on the language of the signage for the store.  The table `bloor_ethnicities` gives these ethnicities: Korean, Indian, Hispanic, and Ethiopian.
+```+--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| ethnicity_id | smallint(6) | NO   | PRI | NULL    | auto_increment |
+| ethnicity    | varchar(63) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+```
+
+Each `category` is associated with a bunch of `types`.  For example, the category 'Prepared food' is associated with the types 'Restaurant', 'Bar', 'Donuts', 'Bakery', and several others.  To each observation I assign at least one of the types associated with the category to which I assign it, and possibly other types, associated with other categories.  Some `types` have `subtypes`.  For example, the `subtypes` of a restaurant indicate the cuisine that it serves (with the default being 'generic').
+
+The table `bloor_observation_types` specifies the types and subtypes associated with each observation.  An observation with multiple types has multiple entries in this table.
+```
++---------------------+--------------+------+-----+---------+----------------+
+| Field               | Type         | Null | Key | Default | Extra          |
++---------------------+--------------+------+-----+---------+----------------+
+| observation_type_id | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| observation_id      | mediumint(5) | YES  | MUL | NULL    |                |
+| type_id             | mediumint(5) | YES  | MUL | NULL    |                |
+| subtype_id          | mediumint(9) | YES  | MUL | NULL    |                |
++---------------------+--------------+------+-----+---------+----------------+
+```
+
+The table `bloor_types` gives the `category_id` for the category with which the type is associated and the name (`description`) of the type.
+```
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| type_id     | mediumint(5) | NO   | PRI | NULL    | auto_increment |
+| category_id | bigint(20)   | YES  | MUL | NULL    |                |
+| description | varchar(100) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+```
+
+The table `bloor_subtypes` givens the `type_id` of the type with which the subtype is associated and the name (`description`) of the subtype.
+```
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| subtype_id  | mediumint(9) | NO   | PRI | NULL    | auto_increment |
+| type_id     | mediumint(5) | YES  | MUL | NULL    |                |
+| description | varchar(100) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+```
+
+The table `bloor_streets` is used in the construction of the image of the street used on the website, and is not relevant to main data.
+```
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| street_name | varchar(60) | YES  |     | NULL    |                |
+| spos        | varchar(6)  | YES  |     | NULL    |                |
+| epos        | varchar(6)  | YES  |     | NULL    |                |
+| xpos        | varchar(6)  | YES  |     | NULL    |                |
+| street_id   | bigint(20)  | NO   | PRI | NULL    | auto_increment |
++-------------+-------------+------+-----+---------+----------------+
 ```
