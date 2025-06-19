@@ -89,15 +89,15 @@ The table `bloor_locations` has the following structure.
 | image_filename | varchar(255) | YES  |     | NULL    |                |
 +----------------+--------------+------+-----+---------+----------------+
 ```
-For most locations, `number` is the number assigned by the city.  For some buildings on the corner of Bloor and another street, the number assigned by the city is a number on the other street.  For these buildings, I have assigned numbers on Bloor Street.  In some other cases, a building with a single number is occupied by more than one business.  In those cases, I have assigned a number like `123 L`, `123 M`, or `123 R` (for left, middle, and right).
+For most locations, `number` is the number assigned to the building by the city.  For some buildings on the corner of Bloor and another street, the number assigned by the city is a number on the other street.  For these buildings, I have assigned numbers on Bloor Street.  In some other cases, a building with a single number is occupied by more than one business.  In those cases, I have assigned a number like `123 L`, `123 M`, or `123 R` (for left, middle, and right).
 
-The field `sector` is either `1`, indicating a location between Spadina and Christie or `2`, indicating a location between Christie and Lansdowne.
+The field `sector` is either `1`, indicating a location between Spadina and Christie, or `2`, indicating a location between Christie and Lansdowne.
 
 The fields `spos` and `epos` (starting and ending positions) are used by my routine to construct an image showing all the locations on the street.  They are not otherwise relevant.
 
 The fields `latitude` and `longitude` are mostly unpopulated.
 
-The field `image_filename` is used to identify the photo in which the location appears.  It is used only on the administrative site, as an aid when entering data from the directories.
+The field `image_filename` is used to identify a photo in which the location appears.  It is used only on my administrative site, as an aid when entering data from the directories.
 
 The table `bloor_businesses` assigns a name to each business (usually the name of the business in the first year I observed it).
 ```
@@ -170,7 +170,7 @@ The table `bloor_subtypes` givens the `type_id` of the type with which the subty
 +-------------+--------------+------+-----+---------+----------------+
 ```
 
-The table `bloor_streets` is used in the construction of the image of the street used on the website, and is not relevant to main data.
+The table `bloor_streets` is used in the construction of the image of the street used on the website, and is not relevant to the main data.
 ```
 +-------------+-------------+------+-----+---------+----------------+
 | Field       | Type        | Null | Key | Default | Extra          |
