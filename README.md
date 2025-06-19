@@ -19,7 +19,8 @@ The database consists of the following tables:
 | bloor_subtypes          |
 | bloor_surveys           |
 | bloor_types             |
-+-------------------------+```
++-------------------------+
+```
 
 The table `bloor_observations` has the following structure:
 ```+----------------+--------------+------+-----+---------+----------------+
@@ -35,7 +36,8 @@ The table `bloor_observations` has the following structure:
 | observed_name  | varchar(100) | YES  |     | NULL    |                |
 | remark         | varchar(255) | YES  |     | NULL    |                |
 | website        | varchar(255) | YES  |     | NULL    |                |
-+----------------+--------------+------+-----+---------+----------------+```
++----------------+--------------+------+-----+---------+----------------+
+```
 
 Observations that come from my surveys have non-null `survey_id`s and observations that come from the directories have non-null `directory_id`s.
 
@@ -49,7 +51,8 @@ The table `bloor_surveys` gives the dates I conducted the surveys and has a flag
 | end_date   | date         | YES  |     | NULL    |                |
 | current    | char(1)      | YES  |     | NULL    |                |
 | note       | varchar(255) | YES  |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+```
++------------+--------------+------+-----+---------+----------------+
+```
 
 The table `bloor_directories` gives the details of the directories (scans of which are available from the Toronto Public Library, on the page https://www.torontopubliclibrary.ca/history-genealogy/lh-digital-city-directories.jsp).
 ```+---------------------------+--------------+------+-----+---------+----------------+
@@ -61,7 +64,8 @@ The table `bloor_directories` gives the details of the directories (scans of whi
 | publisher                 | varchar(255) | YES  |     | NULL    |                |
 | bloor_spadina_page_number | smallint(6)  | YES  |     | NULL    |                |
 | note                      | varchar(255) | YES  |     | NULL    |                |
-+---------------------------+--------------+------+-----+---------+----------------+```
++---------------------------+--------------+------+-----+---------+----------------+
+```
 Some of the scans exclude the edges of the pages.  In these cases, I went to the Toronto Reference Library and took photos of the missing information.
 
 The table `bloor_locations` has the following structure.
@@ -78,7 +82,8 @@ The table `bloor_locations` has the following structure.
 | latitude       | varchar(15)  | YES  |     | NULL    |                |
 | longitude      | varchar(15)  | YES  |     | NULL    |                |
 | image_filename | varchar(255) | YES  |     | NULL    |                |
-+----------------+--------------+------+-----+---------+----------------+```
++----------------+--------------+------+-----+---------+----------------+
+```
 For most locations, `number` is the number assigned by the city.  For some buildings on the corner of Bloor and another street, the number assigned by the city is a number on the other street.  For these buildings, I have assigned numbers on Bloor Street.  In some other cases, a building with a single number is occupied by more than one business.  In those cases, I have assigned a number like `123 L`, `123 M`, or `123 R` (for left, middle, and right).
 
 The field `sector` is either `1`, indicating a location between Spadina and Christie or `2`, indicating a location between Christie and Lansdowne.
@@ -96,7 +101,8 @@ The table `bloor_businesses` assigns a name to each business (usually the name o
 | business_id | mediumint(5) | NO   | PRI | NULL    | auto_increment |
 | name        | varchar(80)  | YES  |     | NULL    |                |
 | comment     | varchar(200) | YES  |     | NULL    |                |
-+-------------+--------------+------+-----+---------+----------------+```
++-------------+--------------+------+-----+---------+----------------+
+```
 
 The table `bloor_categories`
 ```+-------------+--------------+------+-----+---------+----------------+
@@ -108,4 +114,5 @@ The table `bloor_categories`
 | seq         | float        | YES  |     | NULL    |                |
 | color       | varchar(7)   | YES  |     | NULL    |                |
 | dark_color  | varchar(7)   | YES  |     | NULL    |                |
-+-------------+--------------+------+-----+---------+----------------+```
++-------------+--------------+------+-----+---------+----------------+
+```
