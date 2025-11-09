@@ -2,7 +2,7 @@
 The file `bloor.sql` is a `mysqldump` of the database behind
 https://mjo.osborne.economics.utoronto.ca/index.php/bloor/
 
-This database consists of the results of my surveys of the businesses on Bloor Street, Toronto, between Spadina and Lansdowne, since 1995,augmented by similar data from city directories prior to 1995.  The page
+This database consists of the results of my surveys of the businesses on Bloor Street, Toronto, between Spadina and Lansdowne, since 1995, augmented by similar data from city directories back to 1952.  The page
 https://mjo.osborne.economics.utoronto.ca/index.php/bloor/bloorData
 describes the data in detail.
 
